@@ -1,0 +1,47 @@
+{
+  "name": "Hello Extensions",
+  "description" : "Base Level Extension",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "background": { 
+    "scripts": [
+    "background.js",
+    "jquery.min.js",
+    "xregexp-all.js"
+  ]
+},
+"options_page": "options.html",
+"content_scripts": [{
+  "matches": [ "<all_urls>" ],
+  "all_frames": true,
+  "js": [
+    "jquery.min.js",
+    "contentscript.js",
+    "xregexp-all.js"
+  ]
+}],
+  "manifest_version": 2,
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Opens hello.html"
+    },
+      "copy-translation-to-clipboard": {
+        "description": "Copy translation to clipboard"
+    }
+  },
+  "permissions": [ "activeTab", "tabs", "http://*/", "https://*/" ],
+  "web_accessible_resources": [
+    "options.html",
+    "popup.html",
+    "popup.js"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com https://clients5.google.com; object-src 'self'"
+
+}
