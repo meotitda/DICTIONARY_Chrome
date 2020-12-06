@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-classes": "^7.12.1",
+    "babel-loader": "^8.2.2",
+    "jquery": "^3.5.1",
+    "xregexp": "^4.4.0"
+  },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.2",
@@ -11,7 +17,8 @@
     "webpack-cli": "^4.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch"
   },
   "author": "",
   "license": "ISC"

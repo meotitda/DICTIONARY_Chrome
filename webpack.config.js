@@ -10,6 +10,8 @@ const config = {
   entry: {
     background: './background.js',
     contentscript: './contentscript.js',
+    options_script: './lib/options_script.js',
+    popup: './lib/popup.js'
   },
   output: {
     filename: '[name].js',
@@ -20,12 +22,12 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        // use: {
-        //   loader: 'babel-loader',
-        //   options: {
-        //     plugins: ['@babel/plugin-transform-classes']
-        //   }
-        // }
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['@babel/plugin-transform-classes']
+          }
+        }
       }
     ]
   },
@@ -42,7 +44,16 @@ const config = {
                 from: 'manifest.json',
             },
             {
-                from: 'options.html',
+                from: '*.html',
+            },
+            {
+              from:'node_modules/jquery/dist/jquery.min.js',
+            },
+            {
+              from:'node_modules/xregexp/xregexp-all.js'
+            },
+            {
+              from :'lib/popup.html',
             }
         ]
     })
