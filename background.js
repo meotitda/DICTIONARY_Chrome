@@ -55,11 +55,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         })
         break
     case 'translate':
-        console.log('received to translate: ' + request.word)
         translate(request.word, sendResponse)
         return true
     default:
-        console.error('Unknown handler')
         sendResponse({})
     }
     return true
