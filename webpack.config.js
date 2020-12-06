@@ -11,7 +11,8 @@ const config = {
     background: './background.js',
     contentscript: './contentscript.js',
     options_script: './lib/options_script.js',
-    popup: './lib/popup.js'
+    popup: './lib/popup.js',
+    hello: './hello.js'
   },
   output: {
     filename: '[name].js',
@@ -54,6 +55,9 @@ const config = {
             },
             {
               from :'lib/popup.html',
+            },
+            {
+              from :'style.css',
             }
         ]
     })

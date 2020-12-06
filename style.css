@@ -1,0 +1,129 @@
+body, html {
+    background-color: #EBECF0;
+  }
+  body, p, input, select, textarea, button {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+  }
+  div, p {
+    color: #656668;
+    text-shadow: 1px 1px 1px #FFF;
+  }
+  .main {
+    padding: 16px;
+    width: 320px;
+    margin: 0 auto;
+  }
+  .segment {
+    padding: 8px 0;
+    text-align: center;
+  }
+  button, input {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+  }
+  label {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+  input {
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  input:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+  button {
+    color: #61677C;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  button:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  }
+  button:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+  button .icon {
+    margin-right: 8px;
+  }
+  button.unit {
+    border-radius: 8px;
+    line-height: 0;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    font-size: 19.2px;
+  }
+  button.unit .icon {
+    margin-right: 0;
+  }
+  button.red {
+    display: block;
+    width: 100%;
+    color: #AE1100;
+  }
+  .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .input-group label {
+    margin: 0;
+    flex: 1;
+  }
+  
+
+
+
+
+
+
+  .wrapper {
+    margin: 10px auto;
+  }
+
+  .card-w .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 30px;
+    border-radius: 30px;
+    position: relative;
+    background: transparent;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .card-w .card .card__text {
+    text-align: center;
+  }
+  /* inset */
+  .card.inset {
+    box-shadow: inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF;
+  }
+  .card.inset i {
+    text-shadow: 1px 1px 1px #d6e1ef99, 0 0 0 #000, 1px 1px 1px #d6e1ef00;
+  }
+  .card.active {
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5), inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF;
+    background: linear-gradient(318.32deg, rgba(163, 177, 198, 0.1) 0%, rgba(163, 177, 198, 0.1) 55%, rgba(163, 177, 198, 0.25) 100%);
+  }
+  
