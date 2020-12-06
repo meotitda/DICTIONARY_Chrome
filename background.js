@@ -58,7 +58,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         console.log('received to translate: ' + request.word)
         translate(request.word, sendResponse)
         return true
-        break
     default:
         console.error('Unknown handler')
         sendResponse({})

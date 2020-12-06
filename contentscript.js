@@ -61,12 +61,8 @@ $(document).keydown(function(e) {
     const selection = window.getSelection().toString()
 
     if (options.selection_key_only && selection) {
-      console.log('Got selection_key_only')
-
       chrome.runtime.sendMessage({handler: 'translate', word: selection}, function(response) {
-        console.log('response: ', response)
-
-        const translation = response
+        const translation = response.content.content
 
         if (!translation) {
           console.log('skipping empty translation')
@@ -268,6 +264,7 @@ function getHitWord(e) {
 }
 
 function showPopup(e, content) {
+  console.log('content', content)
   removePopup('transover-type-and-translate-popup')
 
   const $popup = createPopup('transover-popup')
@@ -275,6 +272,7 @@ function showPopup(e, content) {
 
   $popup.on('transover-popup_content_updated', function() {
     const pos = calculatePosition(e.clientX, e.clientY, $popup)
+    console.log('pos', pos)
     $popup
       .each(function() {
         $(this.shadowRoot.querySelector('main')).hide()
@@ -288,12 +286,6 @@ function showPopup(e, content) {
 }
 
 function createPopup(nodeType) {
-
-  console.log('templates', templates)
-  console.log('templateIds', templateIds)
-  console.log('nodeType', nodeType)
-  console.log('templates[templateIds[nodeType]]', templates[templateIds[nodeType]])
-
   document.documentElement.appendChild(templates[templateIds[nodeType]])
   return $('<'+nodeType+'>')
 }
@@ -307,10 +299,10 @@ function removePopup(nodeType) {
 }
 
 $(function() {
-  registerTransoverComponent('popup')
+  registerComponent('popup')
 })
 
-function registerTransoverComponent(component) {
+function registerComponent(component) {
   const html = component + '.html'
   const script = component + '.js'
 
