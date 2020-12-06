@@ -8,7 +8,9 @@
   },
   "background": { 
     "scripts": [
-    "background.js"
+    "background.js",
+    "jquery.min.js",
+    "xregexp-all.js"
   ]
 },
 "options_page": "options.html",
@@ -16,7 +18,9 @@
   "matches": [ "<all_urls>" ],
   "all_frames": true,
   "js": [
-    "contentscript.js"
+    "jquery.min.js",
+    "contentscript.js",
+    "xregexp-all.js"
   ]
 }],
   "manifest_version": 2,
@@ -32,9 +36,11 @@
         "description": "Copy translation to clipboard"
     }
   },
-  "permissions": [ "https://clients5.google.com/*", "tabs" ],
+  "permissions": [ "activeTab", "tabs", "http://*/", "https://*/" ],
   "web_accessible_resources": [
-    "options.html"
+    "options.html",
+    "popup.html",
+    "popup.js"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com https://clients5.google.com; object-src 'self'"
 
