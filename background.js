@@ -9,24 +9,24 @@ const translate =  (word, sendResponse) => {
         url: URL(word),
         type: 'GET',
         success: function on_success(data) {
-            console.log('data', data)
             if(!data?.content) {
                 $.ajax({
                     url: URL2(word),
                     type: 'GET',
                     success: function on_success(data) {
+                        if(!data.length) sendResponse({type: 'nothing'})
                         sendResponse ({
                             status : true,
-                            type: '관련 검색어',
-                            content: data
+                            type: 'recommand',
+                            recommands: data
                         })
                     }
                 })
             } else {
                 sendResponse ({
                     status : true,
-                    type:'찾은 단어',
-                    content: data
+                    type:'find',
+                    word: data
                 })
             }
         },
