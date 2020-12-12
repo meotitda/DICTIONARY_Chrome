@@ -1,45 +1,40 @@
-<template id="transover-popup-template">
-  <style>
-    .pos_translation {
-      padding-bottom: 3px;
-    }
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Hello Extensions </title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
 
-    .rtl {
-      direction: rtl;
-    }
+  </head>
 
-    main {
-      color: #333;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      letter-spacing: initial;
+  <body>
+    <div class="main">
+      
+      <div class="segment">
+        <h1>DICTIONARY</h1>
+      </div>
+      
+      <label>
+        <input id="search" type="word" placeholder="찾으시는 단어를 입력하세요."/>
+        <p id="result"></p>
+      </label>
 
-      background: #fcf7d9;
-      text-align: left;
-      border-style: solid;
-      border-width: 1px;
-      border-color: #ccc;
-      box-shadow: rgba(0,0,0,0.2) 0px 2px 5px;
-      border-radius: 5px;
-      padding: 6px 8px 3px 8px;
-      position: fixed;
-      z-index: 2147483647;
-      top: -1500px;
-      left: 0;
-      box-sizing: content-box;
-      -webkit-font-smoothing: antialiased;
-      font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      <div class="container wrapper">
+        <div class="row">
+          <div class="card-w col-md-4">
+            <div class="card inset">
+              <div class="card__icon"></div>
+                <div id="card__text" class="card__text">
+                  ㅎㅇ
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+      <script type="text/javascript" src="./popup.js"></script>
 
-      pointer-events: none;
-    }
-
-    .pos_translation {
-      font-size: 1em;
-      line-height: 1.2em;
-    }
-  </style>
-
-  <main></main>
-</template>
+</html>
