@@ -11,8 +11,7 @@ const config = {
     background: './background.js',
     contentscript: './contentscript.js',
     options_script: './lib/options_script.js',
-    popup: './lib/popup.js',
-    hello: './hello.js'
+    popup: './popup.js'
   },
   output: {
     filename: '[name].js',
@@ -39,7 +38,7 @@ const config = {
     new CopyWebpackPlugin({
         patterns: [
             {
-                from: '*.png',
+                from: 'images/*.png',
             },
             {
                 from: 'manifest.json',
@@ -54,9 +53,6 @@ const config = {
               from:'node_modules/xregexp/xregexp-all.js'
             },
             {
-              from :'lib/popup.html',
-            },
-            {
               from :'style.css',
             }
         ]
@@ -65,20 +61,3 @@ const config = {
 }
 
 module.exports = config
-
-
-// patterns:
-// {from : [
-//     'manifest.json',
-//     '*.png',
-//     'options.html',
-//   //   'lib/popup.html',
-//   //   'lib/tat_popup.html',
-//   //   'node_modules/jquery/dist/jquery.min.js',
-//   //   'node_modules/xregexp/xregexp-all.js'
-//   ],
-// to: 'dist'
-// }  
-// },
-// )
-// ]
