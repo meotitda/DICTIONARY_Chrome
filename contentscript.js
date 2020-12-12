@@ -5,11 +5,6 @@ chrome.storage.sync.get('options', function(data) {
 });
   
 
-$(document).on('mousestop', function(e) {
-      console.log('mousestop')
-  }
-)
-
 $(document).click(function(e) {
   withOptionsSatisfied(e, function() {
     if (options.translate_by != 'click')
@@ -41,7 +36,6 @@ function processEvent(e) {
   let word = ''
   if (selection.toString()) {
     if (options.selection_key_only) {
-      console.log('Skip because "selection_key_only"')
       return
     }
 
@@ -59,14 +53,7 @@ function processEvent(e) {
     }
   
     if (word != '') {
-      // chrome.runtime.sendMessage({handler: 'translate', word}, function(response) {
-      //   console.log('response: ', response)        
-      // })
-      console.log('word')
-      chrome.storage.sync.set({word}, function() {
-        console.log(`word: ${word}`);
-
-      })
+      chrome.storage.sync.set({word})
     }
   }
 }

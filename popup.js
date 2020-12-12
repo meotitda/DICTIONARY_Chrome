@@ -56,7 +56,6 @@ const NO_CONTENT_ELEMENT = `
 function searchWord(word) {
     chrome.runtime.sendMessage(
         {handler: 'translate', word}, function(response) {
-        
         switch(response.type) {
             case 'recommand':
                 versatile.innerHTML="추천 검색어<br>"

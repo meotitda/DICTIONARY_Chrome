@@ -4,7 +4,6 @@ const URL = (word) => `http://localhost:4000/word/find/${word}`
 const URL2 = (word) => `http://localhost:4000/word/fuzzy/${word}`
 
 const translate =  (word, sendResponse) => {
-    console.log('word', word)
     $.ajax({
         url: URL(word),
         type: 'GET',
@@ -14,7 +13,6 @@ const translate =  (word, sendResponse) => {
                     url: URL2(word),
                     type: 'GET',
                     success: function on_success(data) {
-                        if(!data.length) sendResponse({type: 'nothing'})
                         sendResponse ({
                             status : true,
                             type: 'recommand',
@@ -31,7 +29,6 @@ const translate =  (word, sendResponse) => {
             }
         },
         error: function(xhr, status, e) {
-            console.log({e: e, xhr: xhr})
             sendResponse({
                 status : true,
                 e,
@@ -48,7 +45,6 @@ chrome.runtime.onInstalled.addListener(function() {
         return result
         }, {})
     chrome.storage.sync.set({options}, function() {
-      console.log(`setting: ${options}`);
     });
 });
 
@@ -72,19 +68,3 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
     return true
 })
-
-chrome.commands.onCommand.addListener(function(command, tabs) {
-    console.log('command', command)
-    console.log('tabs', tabs)
-    // chrome.pageAction.show({},()=>{})
-});
-
-
-chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-chrome.declarativeContent.onPageChanged.addRules([{
-    conditions: [new chrome.declarativeContent.PageStateMatcher({
-    })
-    ],
-        actions: [new chrome.declarativeContent.ShowPageAction()]
-}]);
-});
