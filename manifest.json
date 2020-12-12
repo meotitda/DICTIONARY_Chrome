@@ -1,6 +1,6 @@
 {
-  "name": "Hello Extensions",
-  "description" : "Base Level Extension",
+  "name": "DICTIONARY-개발용어사전",
+  "description" : "개발자를 위한 용어사전",
   "version": "1.0",
   "browser_action": {
     "default_popup": "hello.html",
@@ -11,7 +11,8 @@
     "background.js",
     "jquery.min.js",
     "xregexp-all.js"
-  ]
+  ],
+  "persistent": false
 },
 "options_page": "options.html",
 "content_scripts": [{
@@ -36,7 +37,7 @@
         "description": "Copy translation to clipboard"
     }
   },
-  "permissions": [ "activeTab", "tabs", "http://*/", "https://*/" ],
+  "permissions": [ "activeTab", "tabs", "storage", "http://*/", "https://*/" ],
   "web_accessible_resources": [
     "options.html",
     "popup.html",
