@@ -40,31 +40,40 @@ const translate =  (word, sendResponse) => {
     })
 }
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    const except_urls = Options.except_urls()
-    console.log('woooord', request.word)
-    switch (request.handler) {
-    case 'get_options':
-        sendResponse({
-        options: JSON.stringify(
-            Object.keys(Options).reduce((result, key) => {
-            result[key] = Options[key]()
-            return result
-            }, {})
-        )
-        })
-        break
-    case 'translate':
-        translate(request.word, sendResponse)
-        return true
-    default:
-        sendResponse({})
-    }
-    return true
-})
 
-
-chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
-    chrome.tabs.executeScript(null, { file: "contentscript.js" });
-    chrome.tabs.executeScript(null, { file: "background.js" });
+chrome.runtime.onInstalled.addListener(function() {
+    const options = Object.keys(Options).reduce((result, key) => {
+        result[key] = Options[key]()
+        return result
+        }, {})
+    chrome.storage.sync.set({options}, function() {
+      console.log(`setting: ${options}`);
+    });
 });
+
+// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+//     switch (request.handler) {
+//     case 'get_options':
+//         sendResponse({
+//         options: JSON.stringify(
+//             Object.keys(Options).reduce((result, key) => {
+//             result[key] = Options[key]()
+//             return result
+//             }, {})
+//         )
+//         })
+//         break
+//     case 'translate':
+//         translate(request.word, sendResponse)
+//         return true
+//     default:
+//         sendResponse({})
+//     }
+//     return true
+// })
+
+
+// chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
+//     chrome.tabs.executeScript(null, { file: "contentscript.js" });
+//     chrome.tabs.executeScript(null, { file: "background.js" });
+// });

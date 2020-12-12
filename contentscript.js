@@ -7,39 +7,17 @@ const templateIds = {
   'transover-type-and-translate-popup': 'transover-tat-popup-template'
 }
 
-function loadOptions() {
-    chrome.runtime.sendMessage({handler: 'get_options'}, function(response) {
-      options = JSON.parse( response.options )
-      console.log('loadOptions', response)
-    //   disable_on_this_page = ignoreThisPage(options)
-    //   chrome.runtime.sendMessage({handler: 'setIcon', disabled: disable_on_this_page})
-    })
-  }
-  loadOptions()
-  
-  document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) {
-      loadOptions()
-    }
-  }, false)
-  
+
+let options
+ 
+  chrome.storage.sync.get('options', function(data) {
+    options = data.options
+  });
   
 
-  $(document).on('mousestop', function(e) {
-    // withOptionsSatisfied(e, function() {
-    //     // translate selection unless 'translate selection on alt only' is set
-    //     if (window.getSelection().toString()) {
-    //       if (!options.selection_key_only) {
-    //         processEvent(e)
-    //       }
-    //     } else {
-    //       if (options.translate_by == 'point') {
-    //         processEvent(e)
-    //       }
-    //     }
-    //   })
-        console.log('mousestop')
-    }
+$(document).on('mousestop', function(e) {
+      console.log('mousestop')
+  }
 )
 
 $(document).click(function(e) {
