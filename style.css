@@ -12,7 +12,7 @@ body, html {
   }
   .main {
     padding: 16px;
-    width: 320px;
+    width: 440px;
     margin: 0 auto;
   }
   .segment {
@@ -99,16 +99,14 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 30px;
+    padding: 30px;
     border-radius: 30px;
     position: relative;
     background: transparent;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  .card-w .card .card__text {
-    text-align: center;
-  }
+
   /* inset */
   .card.inset {
     box-shadow: inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF;
@@ -123,4 +121,19 @@ body, html {
   
   img {
     width: 300px
+  }
+
+  .card__text {
+    line-height: 1.5;
+  }
+
+  a{
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color:#505050;
+  }
+
+  a:hover{
+    color:#aaaaaa;
   }
